@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
     const { error, user } = addUser({ id: socket.id, ...options })
 
     if (error) {
-        return callback(error)
+      return callback(error)
     }
 
     socket.join(user.room)

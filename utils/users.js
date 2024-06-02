@@ -48,8 +48,8 @@ const getUsersInRoom = (room) => {
 }
 
 module.exports = {
-    addUser,
-    removeUser,
-    getUser,
-    getUsersInRoom
+  addUser,
+  removeUser,
+  getUser,
+  getUsersInRoom
 }

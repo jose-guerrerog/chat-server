@@ -5,3 +5,7 @@ const generateMessage = (username, text) => {
     createdAt: new Date().getTime()
   }
 }
+
+module.exports = {
+  generateMessage,
+}
