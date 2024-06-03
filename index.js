@@ -26,8 +26,8 @@ io.on("connection", (socket) => {
 
     socket.join(user.room)
 
-    socket.emit('message', generateMessage('Admin', 'Welcome!'))
-    socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`))
+    io.to(user.room).emit('message', generateMessage('Admin', 'Welcome!'))
+    //socket.broadcast.to(user.room).emit('message', generateMessage('Admin', `${user.username} has joined!`))
     io.to(user.room).emit('roomData', {
         room: user.room,
         users: getUsersInRoom(user.room)
@@ -37,7 +37,7 @@ io.on("connection", (socket) => {
   })
 
 
-  socket.on('sendMessage', (message, callback) => {
+  socket.on('sendMessage', (message) => {
     const user = getUser(socket.id)
     const filter = new Filter()
 
@@ -46,7 +46,6 @@ io.on("connection", (socket) => {
     }
 
     io.to(user.room).emit('message', generateMessage(user.username, message))
-    callback()
   })
 
   socket.on('disconnect', () => {
