@@ -74,8 +74,8 @@ io.on("connection", (socket) => {
   });
 });
 
-const PORT = process.env.PORT;
+const port = process.env.PORT || 4000;
 
-server.listen(PORT, () => {
-  console.log(`listening on *:${PORT}`);
+server.listen(port, () => {
+  console.log(`listening on *:${port}`);
 });
