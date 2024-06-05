@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: { origin: process.env.CLIENT_URL, methods: ["GET", "POST"] },
+  cors: { origin: process.env.CLIENT_URL, methods: ["GET", "POST"], preflightContinue: false, optionsSuccessStatus: 204 },
 });
 
 io.on("connection", (socket) => {
